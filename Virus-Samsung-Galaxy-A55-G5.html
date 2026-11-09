@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de seguridad - Samsung Galaxy A55 5G</title>
+<style>
+  :root {
+    --azul: #0b2545;
+    --azul-2: #13315c;
+    --acento: #1e6fd9;
+    --acento-claro: #e8f0fb;
+    --texto: #1c2330;
+    --gris: #56607a;
+    --linea: #d7dee9;
+    --fondo: #f4f6fa;
+    --resalte: #ffe27a;
+    --blanco: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.7;
+    font-size: 17px;
+    padding-bottom: 96px;
+  }
+
+  header.cabecera {
+    background: linear-gradient(135deg, var(--azul), var(--azul-2));
+    color: var(--blanco);
+    padding: 38px 24px 30px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(11, 37, 69, 0.25);
+  }
+
+  header.cabecera .kicker {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #9dc0f0;
+    margin-bottom: 10px;
+  }
+
+  header.cabecera h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  header.cabecera p.sub {
+    margin: 12px auto 0;
+    max-width: 760px;
+    color: #cfe0f7;
+    font-size: 15.5px;
+  }
+
+  .contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .barra-reproductor {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--linea);
+    box-shadow: 0 2px 10px rgba(11, 37, 69, 0.06);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #btn-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--acento);
+    color: var(--blanco);
+    border: none;
+    border-radius: 999px;
+    padding: 12px 26px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.08s ease;
+    box-shadow: 0 4px 14px rgba(30, 111, 217, 0.35);
+  }
+
+  #btn-play:hover { background: #1558b0; }
+  #btn-play:active { transform: scale(0.97); }
+
+  #btn-play .icono { font-size: 17px; line-height: 1; }
+
+  #btn-stop {
+    background: var(--blanco);
+    color: var(--gris);
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+
+  #btn-stop:hover { background: #eef2f8; color: var(--texto); }
+
+  .pista-estado {
+    font-size: 13.5px;
+    color: var(--gris);
+    font-weight: 600;
+  }
+
+  main {
+    background: var(--blanco);
+    margin: 26px auto 0;
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    padding: 34px 38px 42px;
+    box-shadow: 0 8px 26px rgba(11, 37, 69, 0.07);
+  }
+
+  main h2 {
+    font-size: 21px;
+    color: var(--azul);
+    margin: 34px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--acento-claro);
+  }
+
+  main h2:first-of-type { margin-top: 8px; }
+
+  main p {
+    margin: 12px 0;
+    text-align: justify;
+  }
+
+  main ol {
+    margin: 10px 0 18px;
+    padding-left: 24px;
+  }
+
+  main ol li {
+    margin: 8px 0;
+    padding-left: 4px;
+  }
+
+  .aviso {
+    background: #fff7e6;
+    border-left: 5px solid #f0a63a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 16px;
+  }
+
+  .nota {
+    background: var(--acento-claro);
+    border-left: 5px solid var(--acento);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin: 16px 0;
+    font-size: 15.5px;
+    color: #34405c;
+  }
+
+  .fuentes {
+    margin-top: 33px;
+    padding-top: 18px;
+    border-top: 1px solid var(--linea);
+  }
+
+  .fuentes h2 { margin-top: 0; }
+
+  .fuentes ol { padding-left: 24px; }
+
+  .fuentes a {
+    color: var(--acento);
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .fuentes a:hover { text-decoration: underline; }
+
+  /* Resaltado de lectura */
+  .palabra {
+    border-radius: 3px;
+    padding: 1px 0;
+    transition: background 0.08s linear;
+  }
+
+  .palabra.leyendo {
+    background: var(--resalte);
+    box-shadow: 0 0 0 2px var(--resalte);
+  }
+
+  footer.pie {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    z-index: 30;
+    border-top: 3px solid var(--acento);
+  }
+
+  footer.pie .intermitente {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    animation: parpadeo 1.1s steps(2, start) infinite;
+  }
+
+  footer.pie .simbolo {
+    font-size: 15px;
+  }
+
+  @keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    header.cabecera h1 { font-size: 23px; }
+    main { padding: 24px 20px 32px; margin: 18px 12px 0; }
+    footer.pie { font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="kicker">Guía de seguridad móvil</div>
+  <h1>Virus Samsung Galaxy A55 5G</h1>
+  <p class="sub">Cómo eliminar los mensajes falsos de virus y la publicidad agresiva de tu dispositivo.</p>
+</header>
+
+<div class="barra-reproductor">
+  <button id="btn-play" type="button">
+    <span class="icono" id="icono-play">&#9654;</span>
+    <span id="texto-play">Reproducir lectura</span>
+  </button>
+  <button id="btn-stop" type="button">Detener</button>
+  <span class="pista-estado" id="estado">Listo para leer el manual.</span>
+</div>
+
+<div class="contenedor">
+<main id="manual">
+
+  <p>Tienes toda la razón en tus sospechas: esos mensajes son completamente falsos y se conocen como <strong>scareware</strong>. Tu Samsung Galaxy A55 5G no está infectado por un virus real; lo que ocurre es que alguna aplicación que has instalado o un sitio web que has visitado tiene permiso para enviarte publicidad agresiva y engañosa. El objetivo de estos anuncios es asustarte para que descargues aplicaciones innecesarias (muchas veces de pago o que sí contienen virus de verdad) o para robar tus datos. No pulses ningún enlace ni descargues nada de lo que te sugieran.</p>
+
+  <div class="aviso">Aquí tienes los pasos exactos para eliminar este problema en tu modelo de móvil.</div>
+
+  <h2>1. Limpiar las notificaciones del navegador (causa más común)</h2>
+  <p>Muchas veces, al navegar por internet, pulsamos por error «Permitir» en ventanas flotantes. Esto da permiso a páginas web para enviarte alertas falsas que parecen del sistema.</p>
+  <ol>
+    <li>Abre la aplicación de Google Chrome (o el navegador que utilices).</li>
+    <li>Toca los tres puntos verticales en la esquina superior derecha y entra en Ajustes (o Configuración).</li>
+    <li>Busca y selecciona Configuración de sitios y luego Notificaciones.</li>
+    <li>Revisa la lista de sitios web que aparecen bajo el apartado «Permitido». Si ves alguna página web sospechosa o que no conozcas, tócala y selecciona Borrar y restablecer (o desactiva las notificaciones).</li>
+  </ol>
+
+  <h2>2. Desinstalar aplicaciones sospechosas recientes</h2>
+  <p>Si los mensajes te salen «abra la aplicación que abra», es muy probable que hayas instalado un juego, una app de linterna, un lector de PDF o un optimizador de batería falso que se ejecuta en segundo plano y lanza anuncios a pantalla completa.</p>
+  <ol>
+    <li>Entra en los Ajustes de tu Samsung.</li>
+    <li>Ve al apartado de Aplicaciones.</li>
+    <li>Revisa la lista con cuidado. Busca aplicaciones que hayas instalado hace poco (justo cuando empezaron los mensajes) o aplicaciones que no tengan nombre o tengan el icono en blanco (un truco muy común para esconderse).</li>
+    <li>Si encuentras alguna app que no recuerdes haber instalado o que te parezca sospechosa, y selecciona (teniendo pulsado unos segundos hasta que aparece un menú donde verás un icono que es una «i» dentro de un círculo (Información), pulsa en el icono, se abrirá la información de la aplicación; buscaremos Borrar caché y Borrar datos. Primero pulsaremos en Borrar caché; una vez finalizado el borrado de caché, pulsaremos en Borrar datos; una vez finalizado el borrado de datos, desinstalaremos la app. (En algunas ocasiones la carpeta de la aplicación no se elimina del móvil).</li>
+  </ol>
+
+  <h2>3. Usar el antivirus nativo de Samsung</h2>
+  <p>Tu Galaxy A55 viene con un excelente sistema de seguridad integrado que no necesita que descargues nada externo.</p>
+  <ol>
+    <li>Entra en los Ajustes de tu teléfono.</li>
+    <li>Desplázate hacia abajo y selecciona Mantenimiento del dispositivo (o Cuidado del dispositivo).</li>
+    <li>Toca en Protección de la aplicación.</li>
+    <li>Pulsa el botón Analizar teléfono. El móvil rastreará todo el sistema en busca de malware real y te ayudará a eliminarlo si encuentra algo.</li>
+  </ol>
+
+  <h2>4. Borrar el almacenamiento del navegador (si lo anterior falla)</h2>
+  <p>Si los anuncios siguen apareciendo al abrir el navegador, haz una limpieza profunda del mismo:</p>
+  <ol>
+    <li>Mantén pulsado el icono de Google Chrome en tu pantalla de inicio hasta que aparezca un menú flotante.</li>
+    <li>Toca el icono de la «i» dentro de un círculo (Información de la aplicación).</li>
+    <li>Entra en Almacenamiento.</li>
+    <li>Toca en Administrar almacenamiento (abajo a la izquierda) y selecciona Borrar todos los datos.</li>
+  </ol>
+  <div class="nota">Nota: Esto cerrará tus sesiones en las páginas web, pero no borrará tus fotos ni contactos.</div>
+
+  <h2>5. Eliminar o borrar la carpeta de una app desinstalada</h2>
+  <p>En muchas ocasiones, al desinstalar una aplicación, su carpeta de datos permanece en el almacenamiento del móvil y sigue ocupando espacio. A continuación vamos a aprender a localizarla y a eliminarla por completo. Como ejemplo práctico utilizaremos la aplicación <strong>Mega</strong>, ya que así resulta mucho más sencillo saber qué carpeta hay que buscar y dónde se encuentra.</p>
+  <ol>
+    <li>Abre la aplicación «Mis archivos» (o «Archivos») de tu Samsung. También puedes entrar desde los Ajustes, en el apartado Almacenamiento.</li>
+    <li>Selecciona la memoria interna del dispositivo (Almacenamiento interno).</li>
+    <li>Localiza la carpeta principal donde se guardan los datos de las aplicaciones. Se llama «Android». Entra en ella.</li>
+    <li>Dentro verás una carpeta llamada «data». Entra en «data» y, de nuevo, entra en la segunda carpeta «data» que aparece.</li>
+    <li>Ahora busca la carpeta que lleva el nombre del paquete de la aplicación desinstalada. En el caso de Mega, la carpeta se llama «mega.privacy.android.app». Ese nombre es el que tienes que buscar y seleccionar.</li>
+    <li>Mantén pulsada la carpeta unos segundos hasta que se marque y aparezca un menú con varias opciones.</li>
+    <li>Pulsa en «Eliminar» (o en el icono de la papelera) y confirma la operación. Al terminar, la carpeta habrá desaparecido por completo del móvil.</li>
+  </ol>
+  <div class="nota">Importante: en las versiones más recientes de Android, la carpeta «data» está protegida y puede que el móvil no te permita borrarla directamente. Si es tu caso, conecta el teléfono a un ordenador con un cable USB, abre el almacenamiento interno, entra en «Android» &gt; «data» y borra desde el ordenador la carpeta de la aplicación (por ejemplo, «mega.privacy.android.app»).</div>
+
+  <p>Siguiendo estos pasos, en especial la revisión de las aplicaciones instaladas y los permisos de Chrome, esos molestos mensajes desaparecerán por completo.</p>
+
+  <section class="fuentes">
+    <h2>Enlace más sobre Samsung Galaxy</h2>
+    <ol>
+      <li><a href="https://www.samsung.com/co/support/mobile-devices/how-to-analyze-the-device-in-search-of-malware-and-viruses-in-android-pie/" target="_blank" rel="noopener">samsung.com</a></li>
+    </ol>
+  </section>
+
+</main>
+</div>
+
+<footer class="pie">
+  <span class="intermitente">
+    Este manual ha sido creado por <span class="simbolo">&copy;</span> Fran Informática &amp; Soluinfor 2000 &nbsp; <span class="simbolo">&copy;</span> 2026
+  </span>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var manual = document.getElementById("manual");
+  var btnPlay = document.getElementById("btn-play");
+  var btnStop = document.getElementById("btn-stop");
+  var iconoPlay = document.getElementById("icono-play");
+  var textoPlay = document.getElementById("texto-play");
+  var estado = document.getElementById("estado");
+
+  var palabras = [];
+  var textoCompleto = "";
+  var reproduciendo = false;
+  var utterance = null;
+
+  var soporte = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+  if (!soporte) {
+    estado.textContent = "Este navegador no soporta la lectura en voz alta.";
+    btnPlay.disabled = true;
+    btnPlay.style.opacity = "0.55";
+    btnPlay.style.cursor = "not-allowed";
+    return;
+  }
+
+  function envolverNodos() {
+    var bloques = manual.querySelectorAll("p, li, h2, .aviso, .nota");
+    var idx = 0;
+    var partes = [];
+
+    bloques.forEach(function (bloque) {
+      var recorrido = document.createTreeWalker(bloque, NodeFilter.SHOW_TEXT, null, false);
+      var nodos = [];
+      var n;
+      while ((n = recorrido.nextNode())) {
+        if (n.nodeValue.trim().length > 1) { nodos.push(n); }
+      }
+      nodos.forEach(function (nodo) {
+        var texto = nodo.nodeValue;
+        var fragmento = document.createDocumentFragment();
+        var tokens = texto.split(/(\s+)/);
+        tokens.forEach(function (tok) {
+          if (tok.length === 0) { return; }
+          if (/^\s+$/.test(tok)) {
+            fragmento.appendChild(document.createTextNode(tok));
+          } else {
+            var span = document.createElement("span");
+            span.className = "palabra";
+            span.textContent = tok;
+            span.dataset.i = idx;
+            idx++;
+            palabras.push(span);
+            fragmento.appendChild(span);
+          }
+        });
+        nodo.parentNode.replaceChild(fragmento, nodo);
+      });
+      partes.push(bloque.textContent);
+    });
+
+    textoCompleto = partes.join(". ") + ".";
+  }
+
+  function limpiarResalte() {
+    for (var i = 0; i < palabras.length; i++) {
+      palabras[i].classList.remove("leyendo");
+    }
+  }
+
+  function resaltarPorIndice(indice) {
+    if (indice < 0 || indice >= palabras.length) { return; }
+    if (palabras[indice].classList.contains("leyendo")) { return; }
+    limpiarResalte();
+    palabras[indice].classList.add("leyendo");
+  }
+
+  function elegirVoz() {
+    var voces = window.speechSynthesis.getVoices();
+    if (!voces || !voces.length) { return null; }
+    var es = voces.filter(function (v) {
+      return (v.lang || "").toLowerCase().indexOf("es") === 0;
+    });
+    if (es.length) {
+      var preferida = es.find(function (v) { return /es-es/i.test(v.lang); });
+      return preferida || es[0];
+    }
+    return voces[0];
+  }
+
+  function construirTextoConMapa() {
+    textoCompleto = "";
+    for (var i = 0; i < palabras.length; i++) {
+      if (i > 0) { textoCompleto += " "; }
+      palabras[i].dataset.inicio = textoCompleto.length;
+      textoCompleto += palabras[i].textContent;
+    }
+  }
+
+  function mapearPorInicio(charIndex) {
+    var resultado = -1;
+    for (var i = 0; i < palabras.length; i++) {
+      if (parseInt(palabras[i].dataset.inicio, 10) <= charIndex) {
+        resultado = i;
+      } else {
+        break;
+      }
+    }
+    return resultado;
+  }
+
+  function iniciarLectura() {
+    if (reproduciendo) { return; }
+    limpiarResalte();
+    construirTextoConMapa();
+
+    utterance = new SpeechSynthesisUtterance(textoCompleto);
+    utterance.lang = "es-ES";
+    utterance.rate = 0.98;
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
+
+    var voz = elegirVoz();
+    if (voz) { utterance.voice = voz; utterance.lang = voz.lang || "es-ES"; }
+
+    utterance.onboundary = function (evento) {
+      if (evento.name === "word" || evento.name === undefined) {
+        var indice = mapearPorInicio(evento.charIndex);
+        if (indice >= 0) {
+          resaltarPorIndice(indice);
+          var activa = palabras[indice];
+          if (activa) {
+            var rect = activa.getBoundingClientRect();
+            if (rect.top < 60 || rect.bottom > window.innerHeight - 120) {
+              activa.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          }
+        }
+      }
+    };
+
+    utterance.onend = function () {
+      reproduciendo = false;
+      limpiarResalte();
+      iconoPlay.innerHTML = "&#9654;";
+      textoPlay.textContent = "Reproducir lectura";
+      estado.textContent = "Lectura finalizada.";
+    };
+
+    utterance.onerror = function () {
+      reproduciendo = false;
+      limpiarResalte();
+      iconoPlay.innerHTML = "&#9654;";
+      textoPlay.textContent = "Reproducir lectura";
+      estado.textContent = "La lectura se ha detenido.";
+    };
+
+    reproduciendo = true;
+    iconoPlay.innerHTML = "&#10074;&#10074;";
+    textoPlay.textContent = "Pausar lectura";
+    estado.textContent = "Leyendo el manual en voz alta...";
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function pausarLectura() {
+    window.speechSynthesis.pause();
+    reproduciendo = false;
+    iconoPlay.innerHTML = "&#9654;";
+    textoPlay.textContent = "Reanudar lectura";
+    estado.textContent = "Lectura en pausa.";
+  }
+
+  function reanudarLectura() {
+    window.speechSynthesis.resume();
+    reproduciendo = true;
+    iconoPlay.innerHTML = "&#10074;&#10074;";
+    textoPlay.textContent = "Pausar lectura";
+    estado.textContent = "Leyendo el manual en voz alta...";
+  }
+
+  btnPlay.addEventListener("click", function () {
+    if (window.speechSynthesis.paused) {
+      reanudarLectura();
+    } else if (reproduciendo) {
+      pausarLectura();
+    } else {
+      iniciarLectura();
+    }
+  });
+
+  btnStop.addEventListener("click", function () {
+    window.speechSynthesis.cancel();
+    reproduciendo = false;
+    limpiarResalte();
+    iconoPlay.innerHTML = "&#9654;";
+    textoPlay.textContent = "Reproducir lectura";
+    estado.textContent = "Lectura detenida.";
+  });
+
+  window.addEventListener("beforeunload", function () {
+    window.speechSynthesis.cancel();
+  });
+
+  envolverNodos();
+  if (window.speechSynthesis.addEventListener) {
+    window.speechSynthesis.addEventListener("voiceschanged", function () {});
+  }
+})();
+</script>
+</body>
+</html>
