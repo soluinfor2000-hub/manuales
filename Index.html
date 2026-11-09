@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuales - Soluinfor 2000</title>
+    <!-- Fuentes e iconos (igual que en tu web de servicios) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            /* Misma imagen de fondo que usas en servicios.html */
+            background-image: url('https://i.postimg.cc/0j8ybwqZ/Captura-de-pantalla-2026-04-17-220637.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Capa oscura semitransparente para que el texto se lea bien */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Cabecera de la página */
+        .page-header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #f1f5f9;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Rejilla de tarjetas para los manuales */
+        .manuals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0 4rem;
+        }
+
+        .manual-card {
+            background: rgba(30, 41, 59, 0.8); /* Fondo oscuro tipo tarjeta */
+            backdrop-filter: blur(6px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            color: #e2e8f0;
+        }
+
+        .manual-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+        }
+
+        .manual-card .icon {
+            font-size: 2.2rem;
+            color: #60a5fa; /* Azul claro para los iconos */
+            margin-bottom: 1rem;
+        }
+
+        .manual-card h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.6rem;
+        }
+
+        .manual-card p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-manual {
+            display: inline-block;
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-manual:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="page-header">
+            <h1>Manuales y guías</h1>
+            <p>Documentación práctica para sacar el máximo partido a tus sistemas</p>
+        </header>
+
+        <!-- Aquí van las tarjetas de manuales. Puedes añadir o quitar las que quieras -->
+        <section class="manuals-grid">
+
+            <!-- Tarjeta 1 -->
+            <article class="manual-card">
+                <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                <h2>Manual de ciberseguridad</h2>
+                <p>Buenas prácticas para proteger tus equipos, contraseñas y datos frente a amenazas comunes.</p>
+                <a href="#" class="btn-manual">Leer manual</a>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="manual-card">
+                <div class="icon"><i class="fas fa-headset"></i></div>
+                <h2>Guía de soporte remoto</h2>
+                <p>Cómo descargar, instalar y usar la aplicación de asistencia remota paso a paso.</p>
+                <a href="#" class="btn-manual">Ver guía</a>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article class="manual-card">
+                <div class="icon"><i class="fas fa-code"></i></div>
+                <h2>Manual de desarrollo web</h2>
+                <p>Conceptos básicos para entender y gestionar tu página web, dominios y correo profesional.</p>
+                <a href="#" class="btn-manual">Consultar</a>
+            </article>
+
+            <!-- Tarjeta 4 -->
+            <article class="manual-card">
+                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                <h2>Guía de formación</h2>
+                <p>Instrucciones para acceder a los cursos, plataformas de teleformación y materiales de estudio.</p>
+                <a href="#" class="btn-manual">Empezar</a>
+            </article>
+
+        </section>
+    </div>
+
+</body>
+</html>
